@@ -63,4 +63,5 @@ typings/
 screeps.json
 .tscache/*
 build/*
+dist/*
 SwarmConsts.d.ts

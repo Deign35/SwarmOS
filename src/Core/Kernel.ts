@@ -233,6 +233,7 @@ export class Kernel implements IKernel, IKernelExtensions, IKernelSleepExtension
             if (proc.PrepTick) {
                 proc.PrepTick();
             }
+            // (TODO): Test if process has been killed during PrepTick
             this._curTickState[pid] = TS_Active;
         } catch (e) {
             this.killProcess(pid, `Kernel.PrepTick()`);

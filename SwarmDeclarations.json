@@ -23,7 +23,9 @@
                 "SpawnRegistry",
                 "SimpleOwnedRoom",
                 "SwarmCLI",
-                "EmptyProcess"
+                "EmptyProcess",
+
+                "HarvesterActivity"
             ]
         },
         "EXT": {
@@ -37,7 +39,9 @@
                 "Kernel": "kernel",
                 "Sleep": "sleep",
                 "Interrupt": "interrupt",
-                "Logger": "logger"
+                "Logger": "logger",
+
+                "CreepRegistry": "creeps"
             }
         },
         "CP": {

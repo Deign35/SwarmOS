@@ -17,6 +17,8 @@ declare interface IPackageInterfaces {
     [EXT_Kernel]: IKernelExtensions;
     [EXT_Sleep]: IKernelSleepExtension;
     [EXT_Logger]: IKernelLoggerExtensions;
+
+    [EXT_CreepRegistry]: ICreepRegistryExtensions;
 }
 
 /**
@@ -106,14 +108,14 @@ declare interface IKernelSleepExtension extends IPackageExtension {
 /**
  * Registry for creep management and ownership control
  */
-/*declare interface ICreepRegistryExtensions extends IPackageExtension {
-    tryFindCompatibleCreep(creepType: CT_ALL, level: number, targetRoom: RoomID, maxDistance?: number): string | undefined
+declare interface ICreepRegistryExtensions extends IPackageExtension {
+    //tryFindCompatibleCreep(creepType: CT_ALL, level: number, targetRoom: RoomID, maxDistance?: number): string | undefined
     tryRegisterCreep(creepID: CreepID): boolean;
     tryGetCreep(id?: CreepID, requestingPID?: PID): Creep | undefined;
     tryReserveCreep(id?: CreepID, requestingPID?: PID, priority?: Priority): boolean;
     releaseCreep(id?: CreepID, requestingPID?: PID): void;
 }
-
+/*
 declare interface ICreepActivityExtensions extends IPackageExtension {
     CreateNewCreepActivity(actionMem: CreepActivity_Memory, parentPID: PID): PID | undefined;
     RunActivity(args: RunArgs): ScreepsReturnCode;
