@@ -108,3 +108,23 @@ if (!Tombstone.prototype.SwarmOS) {
         }
     });
 }
+// @ts-ignore
+if (!Creep.prototype.SwarmOS) {
+    Object.defineProperties(Creep.prototype, {
+        energy: {
+            get() {
+                return this.carry.energy || 0;
+            }
+        },
+        energyCapacity: {
+            get() {
+                return this.carryCapacity - _.sum(this.carry) + this.energy;
+            }
+        },
+        SwarmOS: {
+            get() {
+                return true;
+            }
+        }
+    });
+}
