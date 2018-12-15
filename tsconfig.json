@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "allowUnreachableCode": false,
+        "target": "esnext",
+        "module": "commonjs",
+        "outDir": "build/compiled",
+        "baseUrl": "src",
+        "strict": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "rootDir": "src",
+        "noEmitOnError": true,
+        "allowSyntheticDefaultImports": true,
+        "removeComments": false,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "inlineSourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "suppressExcessPropertyErrors": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.js",
+        "decl/**/*.ts",
+        "node_modules/@types/**/*.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "objs",
+        "dist",
+        "build"
+    ]
+}

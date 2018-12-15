@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json.schemastore.org/tslint",
+    "name": "SwarmOS",
+    "version": "0.1.0",
+    "description": "Screeps OS made in typescript",
+    "private": true,
+    "license": "(MIT OR Apache-2.0)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Deign35/TheSwarm.git"
+    },
+    "author": {
+        "name": "Deign"
+    },
+    "devDependencies": {
+        "@types/lodash": "^3.10.2",
+        "grunt": "^1.0.2",
+        "grunt-contrib-clean": "^1.1.0",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-uglify": "^3.3.0",
+        "grunt-file-append": "0.0.7",
+        "grunt-screeps": "^1.4.0",
+        "grunt-ts": "^6.0.0-beta.19",
+        "npm": "^6.5.0",
+        "typed-screeps": "^2.3.0",
+        "typescript": "^2.8.3"
+    },
+    "dependencies": {
+        "@types/screeps": "^2.5.2",
+        "eslint": "^5.10.0",
+        "lodash": "^4.17.11",
+        "source-map": "^0.6.1"
+    }
+}

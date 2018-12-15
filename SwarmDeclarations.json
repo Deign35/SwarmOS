@@ -1,0 +1,172 @@
+{
+    "Constants": {
+        "MY": {
+            "comment": "Constants for personal swarm configuration",
+            "enabled": true,
+            "string": true,
+            "entries": {
+                "USERNAME": "Deign",
+                "SIGNATURE": "Greetings.  I am new."
+            }
+        },
+        "PKG": {
+            "comment": "Package names for installation",
+            "enabled": true,
+            "string": true,
+            "isArray": true,
+            "type": true,
+            "combinedType": "OSPackage",
+            "entries": [
+                "FlagManager",
+                "CreepRegistry",
+                "SwarmManager",
+                "SpawnRegistry",
+                "SimpleOwnedRoom",
+                "SwarmCLI",
+                "EmptyProcess"
+            ]
+        },
+        "EXT": {
+            "comment": "Extensions provided by packages for processless package interactions",
+            "enabled": true,
+            "string": true,
+            "type": true,
+            "combinedType": "OSExtension",
+            "entries": {
+                "Registry": "extRegistry",
+                "Kernel": "kernel",
+                "Sleep": "sleep",
+                "Interrupt": "interrupt",
+                "Logger": "logger"
+            }
+        },
+        "CP": {
+            "comment": "Creep package",
+            "enabled": true,
+            "string": true,
+            "isArray": true,
+            "usePrefix": true,
+            "type": true,
+            "combinedType": "CreepPackages",
+            "entries": [
+                "Harvester",
+                "Scout",
+                "SpawnFill",
+                "Work",
+                "RemoteHarvest"
+            ]
+        },
+        "RJ": {
+            "enabled": true,
+            "string": true,
+            "isArray": true,
+            "usePrefix": true,
+            "type": true,
+            "combinedType": "RoomJobs",
+            "entries": [
+                "Tower",
+                "Structures"
+            ]
+        },
+        "TT": {
+            "comment": "Type of target for quickly determining how to interact with the object",
+            "enabled": true,
+            "type": true,
+            "combinedType": "TargetType",
+            "entries": {
+                "None": 0,
+                "ConstructionSite": 1,
+                "Resource": 2,
+                "StorageContainer": 3,
+                "Lab": 4,
+                "Controller": 5,
+                "Source": 6,
+                "Creep": 7,
+                "AnyStructure": 10
+            }
+        },
+        "LOG": {
+            "comment": "Logger Priority",
+            "enabled": true,
+            "type": true,
+            "combinedType": "LogLevel",
+            "entries": {
+                "ALERT": "6",
+                "DEBUG": "1",
+                "ERROR": "4",
+                "FATAL": "5",
+                "INFO": "2",
+                "TRACE": "0",
+                "WARN": "3"
+            }
+        },
+        "DEFAULT": {
+            "comment": "Default values",
+            "enabled": true,
+            "entries": {
+                "LOG_LEVEL": "2",
+                "LOG_ID": "\"SwarmOS\""
+            }
+        },
+        "Priority": {
+            "comment": "Priority values",
+            "enabled": true,
+            "combinedType": "Priority",
+            "type": true,
+            "entries": {
+                "Hold": -1,
+                "Lowest": 1,
+                "Low": 3,
+                "Medium": 5,
+                "High": 7,
+                "Highest": 9,
+                "EMERGENCY": 10
+            }
+        },
+        "ThreadState": {
+            "comment": "State of a thread",
+            "enabled": true,
+            "combinedType": "ThreadState",
+            "type": true,
+            "entries": {
+                "Inactive": 0,
+                "Active": 1,
+                "Waiting": 2,
+                "Done": 3,
+                "Overrun": 4
+            }
+        },
+        "AT": {
+            "comment": "Action type",
+            "enabled": true,
+            "combinedType": "ActionType",
+            "type": true,
+            "entries": {
+                "NoOp": 0,
+                "Attack": 1,
+                "AttackController": 2,
+                "Build": 3,
+                "Drop": 4,
+                "Harvest": 5,
+                "MoveToPosition": 6,
+                "Pickup": 7,
+                "Repair": 8,
+                "RequestTransfer": 9,
+                "Transfer": 10,
+                "Upgrade": 11,
+                "Withdraw": 12,
+                "ClaimController": 13,
+                "Dismantle": 14,
+                "GenerateSafeMode": 15,
+                "Heal": 16,
+                "MoveByPath": 17,
+                "RangedAttack": 18,
+                "RangedHeal": 19,
+                "RangedMassAttack": 20,
+                "ReserveController": 21,
+                "SignController": 22,
+                "Suicide": 23
+            }
+        }
+    }
+}
