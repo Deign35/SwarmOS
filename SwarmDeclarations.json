@@ -18,14 +18,15 @@
             "combinedType": "OSPackage",
             "entries": [
                 "FlagManager",
-                "CreepRegistry",
                 "SwarmManager",
-                "SpawnRegistry",
-                "SimpleOwnedRoom",
                 "SwarmCLI",
                 "EmptyProcess",
 
-                "HarvesterActivity"
+                "CreepRegistry",
+                "RoomRegistry",
+
+                "HarvesterActivity",
+                "BasicRoomActivity"
             ]
         },
         "EXT": {
@@ -41,7 +42,8 @@
                 "Interrupt": "interrupt",
                 "Logger": "logger",
 
-                "CreepRegistry": "creeps"
+                "CreepRegistry": "creeps",
+                "RoomRegistry": "rooms"
             }
         },
         "CP": {

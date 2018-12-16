@@ -13,6 +13,13 @@ const PKG_HarvesterActivity_LogContext: LogContext = {
 
 const ENABLE_PROFILING = true;
 class HarvesterActivity extends BasicProcess<HarvesterActivityMemory> {
+    protected get logID(): string {
+        return PKG_HarvesterActivity_LogContext.logID;
+    }
+    protected get logLevel(): LogLevel {
+        return PKG_HarvesterActivity_LogContext.logLevel!;
+    }
+
     private _container?: ConstructionSite | StructureContainer;
     private _creep!: Creep;
     private _source!: Source;
@@ -63,8 +70,13 @@ class HarvesterActivity extends BasicProcess<HarvesterActivityMemory> {
                     this._creep.moveTo(this._container);
                 }
 
-                if((this._container as ConstructionSite).progressTotal && this._creep.energy > 0) {
-                    this._creep.build(this._container as ConstructionSite);
+                if(this._creep.energy > 0) {
+                    if((this._container as ConstructionSite).progressTotal) {
+                        this._creep.build(this._container as ConstructionSite);
+                    } else if((this._container as StructureContainer).hitsMax && 
+                                    (this._container as StructureContainer).hits < (this._container as StructureContainer).hitsMax) {
+                        this._creep.repair(this._container as StructureContainer);
+                    }
                 }
             } else {
                 this._creep.moveTo(this._source);

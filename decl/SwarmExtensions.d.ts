@@ -89,10 +89,10 @@ declare interface IKernelSleepExtension extends IPackageExtension {
  * Giving back constructionSites, structures, sources, and other information.
  * Is updated on a regular schedule by the RoomManager.
  */
-/*declare interface IRoomDataExtension extends IPackageExtension {
+declare interface IRoomDataExtension extends IPackageExtension {
     GetRoomData(roomID: string): RoomState | undefined;
     BootRoom(roomID: string, force: boolean): void;
-}*/
+}
 
 /**
  * Extension for processes to be able to request creep spawning.
