@@ -97,39 +97,21 @@ declare interface IRoomDataExtension extends IPackageExtension {
 /**
  * Extension for processes to be able to request creep spawning.
  */
-/*declare interface ISpawnRegistryExtensions extends IPackageExtension {
+declare interface ISpawnRegistryExtensions extends IPackageExtension {
     cancelRequest(id?: SpawnRequestID): boolean;
     getRequestStatus(id?: SpawnRequestID): SpawnState;
     requestSpawn(context: SpawnContext, location: RoomID, spawnPriority: Priority,
-        maxSpawnDistance?: number, startMem?: ScreepsObject_CreepMemory): SpawnRequestID;
+        maxSpawnDistance?: number, startMem?: CreepMemory): SpawnRequestID;
     getRequestContext(id?: SpawnRequestID): SpawnContext | undefined;
-}*/
+}
 
 /**
  * Registry for creep management and ownership control
  */
 declare interface ICreepRegistryExtensions extends IPackageExtension {
-    //tryFindCompatibleCreep(creepType: CT_ALL, level: number, targetRoom: RoomID, maxDistance?: number): string | undefined
+    tryFindCompatibleCreep(creepType: CT_ALL, level: number, targetRoom: RoomID, maxDistance?: number): string | undefined
     tryRegisterCreep(creepID: CreepID): boolean;
     tryGetCreep(id?: CreepID, requestingPID?: PID): Creep | undefined;
     tryReserveCreep(id?: CreepID, requestingPID?: PID, priority?: Priority): boolean;
     releaseCreep(id?: CreepID, requestingPID?: PID): void;
-}
-/*
-declare interface ICreepActivityExtensions extends IPackageExtension {
-    CreateNewCreepActivity(actionMem: CreepActivity_Memory, parentPID: PID): PID | undefined;
-    RunActivity(args: RunArgs): ScreepsReturnCode;
-    ValidateActionTarget(actionType: ActionType, target: any): boolean;
-    CreepIsInRange(actionType: ActionType, pos1: RoomPosition, pos2: RoomPosition): boolean;
-    MoveCreep(creep: Creep, pos: RoomPosition): ScreepsReturnCode;
-}*/
-
-interface RunArgs {
-    creep: Creep;
-    actionType: ActionType;
-
-    target?: any;
-    amount?: number;
-    message?: string;
-    resourceType?: ResourceConstant;
 }

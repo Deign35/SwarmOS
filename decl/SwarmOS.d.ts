@@ -74,7 +74,9 @@ declare interface IWorkerGroupProcess extends IProcess {
     RemoveCreep(creepID: CreepID): void;
 }
 
-declare interface CreepMemory extends MemBase {
-    p?: PID;
-    c: CreepID;
+interface CreepMemory {
+    [id: string]: any;
+    ct: CT_ALL;
+    lvl: number;
+    p: PID;     // Spawning PID
 }

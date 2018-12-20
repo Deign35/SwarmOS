@@ -26,7 +26,10 @@
                 "RoomRegistry",
 
                 "HarvesterActivity",
-                "BasicRoomActivity"
+                "BasicRoomActivity",
+                "CreepActivity",
+                "RepetitiveCreepActivity",
+                "SpawnRegistry"
             ]
         },
         "EXT": {
@@ -43,7 +46,8 @@
                 "Logger": "logger",
 
                 "CreepRegistry": "creeps",
-                "RoomRegistry": "rooms"
+                "RoomRegistry": "rooms",
+                "SpawnRegistry": "spawns"
             }
         },
         "CP": {
@@ -172,6 +176,18 @@
                 "ReserveController": 21,
                 "SignController": 22,
                 "Suicide": 23
+            }
+        },
+        "SP": {
+            "comment": "Spawn State -- The state of a given spawn request",
+            "enabled": true,
+            "type": true,
+            "combinedType": "SpawnState",
+            "entries": {
+                "ERROR": -1,
+                "QUEUED": 1,
+                "SPAWNING": 2,
+                "COMPLETE": 3
             }
         }
     }
