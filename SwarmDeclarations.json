@@ -26,10 +26,8 @@
                 "RoomRegistry",
                 "SpawnRegistry",
 
-                "HarvesterActivity",
-                "BasicRoomActivity",
+                "RoomActivity",
                 "CreepActivity",
-                "RepetitiveCreepActivity",
                 "SpawnActivity"
             ]
         },

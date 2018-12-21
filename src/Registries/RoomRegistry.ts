@@ -94,7 +94,7 @@ class RoomExtension extends ExtensionBase implements IRoomDataExtension {
                 let newMem: RoomActivity_Memory = {
                     rID: roomID
                 }
-                this.memory.roomStateData[roomID]!.activityPID = this.extensionRegistry.getKernel().startProcess(PKG_BasicRoomActivity, newMem);
+                this.memory.roomStateData[roomID]!.activityPID = this.extensionRegistry.getKernel().startProcess(PKG_RoomActivity, newMem);
             }
         }
     }

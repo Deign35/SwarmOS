@@ -1,13 +1,13 @@
 export const OSPackage: IPackage<MemBase> = {
     install(processRegistry: IProcessRegistry, extensionRegistry: IExtensionRegistry) {
-        processRegistry.register(PKG_BasicRoomActivity, BasicRoomActivity);
+        processRegistry.register(PKG_RoomActivity, BasicRoomActivity);
     }
 }
 
 import { BasicProcess } from "Core/BasicTypes";
 
-const PKG_BasicRoomActivity_LogContext: LogContext = {
-    logID: PKG_BasicRoomActivity,
+const PKG_RoomActivity_LogContext: LogContext = {
+    logID: PKG_RoomActivity,
     logLevel: LOG_TRACE
 }
 
@@ -15,16 +15,19 @@ const ENABLE_PROFILING = true;
 class BasicRoomActivity extends BasicProcess<RoomActivity_Memory> {
     @extensionInterface(EXT_RoomRegistry)
     RoomExtensions!: IRoomDataExtension;
+
     protected get logID(): string {
-        return PKG_BasicRoomActivity_LogContext.logID;
+        return PKG_RoomActivity_LogContext.logID;
     }
     protected get logLevel(): LogLevel {
-        return PKG_BasicRoomActivity_LogContext.logLevel!;
+        return PKG_RoomActivity_LogContext.logLevel!;
     }
 
-    private roomData!: RoomState;
+    protected room!: Room;
+    protected roomData!: RoomState;
 
     PrepThread() {
+        this.room = Game.rooms[this.memory.rID];
         this.roomData = this.RoomExtensions.GetRoomData(this.memory.rID)!;
         if(!this.roomData || this.roomData.activityPID != this.pid) {
             throw new Error(`Room activity couldn't find its roomData (${this.memory.rID})`);
@@ -35,7 +38,15 @@ class BasicRoomActivity extends BasicProcess<RoomActivity_Memory> {
         let start = Game.cpu.getUsed();
         try {
             this.log.info("Room activity updated");
-            this.sleeper.sleep(this.pid, 5);
+            if(this.roomData.lastUpdated % 31) {
+                // Update a thing
+                this.roomData.resources = this.room.find(FIND_DROPPED_RESOURCES).map((resource) => resource.id);
+            }
+            if(this.roomData.lastUpdated % 37) {
+                // Update a different thing
+            }
+
+            this.roomData.lastUpdated = Game.time;
         } catch (ex) {
             this.log.info(`An exception occurred while trying experimental stuff (${ex})`);
         }
