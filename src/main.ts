@@ -46,8 +46,7 @@ if (!Memory.VERSION || Memory.VERSION != SWARM_VERSION_DATE) {
 import { kernel } from "Core/index";
 import { ActivitiesPackage } from "Activities/index";
 import { RegistriesPackage } from "Registries/index";
-import { RoomActivityPackage } from "RoomActivity/index";
-kernel.installPackages([ActivitiesPackage, RegistriesPackage, RoomActivityPackage]);
+kernel.installPackages([ActivitiesPackage, RegistriesPackage]);
 
 export function loop() {
     try {

@@ -16,3 +16,7 @@ declare interface SingleCreepActivity_Memory extends MemBase {
     r?: ResourceConstant // (r)esource type to withdraw or transfer
     t?: ObjectID;   // (t)arget
 }
+
+declare interface RoomActivity_Memory extends MemBase {
+    
+}
