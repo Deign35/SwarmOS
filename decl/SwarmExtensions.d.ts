@@ -109,6 +109,7 @@ declare interface ISpawnRegistryExtensions extends IPackageExtension {
  * Registry for creep management and ownership control
  */
 declare interface ICreepRegistryExtensions extends IPackageExtension {
+    CreateNewCreepActivity(actionMem: CreepActivity_Memory, parentPID: PID): PID | undefined 
     tryFindCompatibleCreep(creepType: CT_ALL, level: number, targetRoom: RoomID, maxDistance?: number): string | undefined
     tryRegisterCreep(creepID: CreepID): boolean;
     tryGetCreep(id?: CreepID, requestingPID?: PID): Creep | undefined;
