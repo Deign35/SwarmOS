@@ -97,6 +97,5 @@ class RoomExtension extends ExtensionBase implements IRoomDataExtension {
                 this.memory.roomStateData[roomID]!.activityPID = this.extensionRegistry.getKernel().startProcess(PKG_BasicRoomActivity, newMem);
             }
         }
-
     }
 }

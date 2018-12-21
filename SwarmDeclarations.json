@@ -24,12 +24,13 @@
 
                 "CreepRegistry",
                 "RoomRegistry",
+                "SpawnRegistry",
 
                 "HarvesterActivity",
                 "BasicRoomActivity",
                 "CreepActivity",
                 "RepetitiveCreepActivity",
-                "SpawnRegistry"
+                "SpawnActivity"
             ]
         },
         "EXT": {
@@ -50,20 +51,21 @@
                 "SpawnRegistry": "spawns"
             }
         },
-        "CP": {
-            "comment": "Creep package",
+        "CJ": {
+            "comment": "Creep job packages",
             "enabled": true,
             "string": true,
             "isArray": true,
-            "usePrefix": true,
             "type": true,
-            "combinedType": "CreepPackages",
+            "usePrefix": true,
+            "combinedType": "CreepJobsPackage",
             "entries": [
-                "Harvester",
-                "Scout",
-                "SpawnFill",
+                "BootRefill",
+                "Harvest",
+                "Refill",
                 "Work",
-                "RemoteHarvest"
+                "Science",
+                "Scout"
             ]
         },
         "RJ": {
