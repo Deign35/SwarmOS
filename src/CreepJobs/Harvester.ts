@@ -1,4 +1,4 @@
-export const OSPackage: IPackage<SpawnRegistry_Memory> = {
+export const OSPackage: IPackage<HarvesterMemory> = {
     install(processRegistry: IProcessRegistry, extensionRegistry: IExtensionRegistry) {
         processRegistry.register(CJ_Harvest, Harvester);
     }

@@ -3,7 +3,6 @@ declare interface SpawnActivity_Memory extends MemBase {
 }
 declare interface CreepActivity_Memory extends SingleCreepActivity_Memory {
     c: CreepID;     //Creep
-    d?: string;      //(d)elegate back to parent.
 }
 
 declare interface SingleCreepActivity_Memory extends MemBase {

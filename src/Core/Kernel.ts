@@ -65,7 +65,6 @@ export class Kernel implements IKernel, IKernelExtensions, IKernelSleepExtension
         this.processTable[pid] = pInfo;
         this.processMemory[pid] = startMemory || {};
 
-        this.PrepTick(pid);
         return pid;
     }
 

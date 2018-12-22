@@ -7,5 +7,5 @@ declare interface SoloJob_Memory extends MemBase {
 }
 declare interface HarvesterMemory extends SoloJob_Memory {
     src: ObjectID;
-    sup: ObjectID;
+    sup?: ObjectID;
 }

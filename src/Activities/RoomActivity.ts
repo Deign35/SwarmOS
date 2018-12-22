@@ -8,7 +8,7 @@ import { BasicProcess } from "Core/BasicTypes";
 
 const PKG_RoomActivity_LogContext: LogContext = {
     logID: PKG_RoomActivity,
-    logLevel: LOG_TRACE
+    logLevel: LOG_WARN
 }
 
 const ENABLE_PROFILING = true;
@@ -26,7 +26,7 @@ class BasicRoomActivity extends BasicProcess<RoomActivity_Memory> {
     protected room!: Room;
     protected roomData!: RoomState;
 
-    PrepThread() {
+    PrepTick() {
         this.room = Game.rooms[this.memory.rID];
         this.roomData = this.RoomExtensions.GetRoomData(this.memory.rID)!;
         if(!this.roomData || this.roomData.activityPID != this.pid) {
@@ -40,6 +40,19 @@ class BasicRoomActivity extends BasicProcess<RoomActivity_Memory> {
             this.log.info("Room activity updated");
             if(this.roomData.lastUpdated % 31) {
                 // Update a thing
+                for(let id in this.roomData.sources) {
+                    let sourceData = this.roomData.sources[id];
+                    let pid = sourceData.creepJobPID;
+                    if(!pid || !this.kernel.getProcessByPID(pid)) {
+                        // Create a harvester
+                        let newMem: HarvesterMemory = {
+                            rID: this.room.name,
+                            tr: this.room.name,
+                            src: id,
+                        }
+                        sourceData.creepJobPID = this.kernel.startProcess(CJ_Harvest, newMem);
+                    }
+                }
             }
             if(this.roomData.lastUpdated % 37) {
                 // Update a different thing

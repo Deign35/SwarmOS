@@ -32,6 +32,9 @@ class CreepActivity extends BasicProcess<CreepActivity_Memory> {
         }
     }
     RunThread(): ThreadState {
+        if(this.AssignedCreep && this.AssignedCreep.spawning) {
+            return ThreadState_Done;
+        }
         if (!this.AssignedCreep || (!this.Target && !this.TargetPos) || !this.ValidateActionTarget(this.memory.at, this.Target || this.TargetPos)) {
             this.EndActivity();
             return ThreadState_Done;
@@ -104,13 +107,13 @@ class CreepActivity extends BasicProcess<CreepActivity_Memory> {
     }
 
     EndActivity() {
-        if (!this.memory.d) {
+        if (!this.memory.HC) {
             this.EndProcess();
             return;
         }
         let parent = this.GetParentProcess();
-        if (parent && parent[this.memory.d]) {
-            parent[this.memory.d](this.memory.c);
+        if (parent && parent[this.memory.HC]) {
+            parent[this.memory.HC](this.memory.c);
         }
 
         //(TODO): Change this to put the activity to sleep so as not to waste creating and destroying over and over

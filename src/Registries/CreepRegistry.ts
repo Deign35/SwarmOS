@@ -194,7 +194,7 @@ class CreepRegistryExtensions extends ExtensionBase implements ICreepRegistryExt
         if (!actionMem || !parentPID || !actionMem.c || !actionMem.at) {
             return undefined;
         }
-        let creep = (this.extensionRegistry.get(EXT_CreepRegistry) as ICreepRegistryExtensions).tryGetCreep(actionMem.c, parentPID);
+        let creep = this.tryGetCreep(actionMem.c, parentPID);
         if (!creep) {
             return undefined;
         }
@@ -209,8 +209,8 @@ class CreepRegistryExtensions extends ExtensionBase implements ICreepRegistryExt
             return undefined;
         }
 
-        let newPID = this.kernel.startProcess(PKG_CreepActivity, actionMem);
-        this.kernel.setParent(newPID, parentPID);
+        let newPID = this.extensionRegistry.getKernel().startProcess(PKG_CreepActivity, actionMem);
+        this.extensionRegistry.getKernel().setParent(newPID, parentPID);
         return newPID;
     }
 }
