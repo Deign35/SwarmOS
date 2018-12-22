@@ -1,20 +1,15 @@
 declare interface RoomStateMemory extends MemBase {
     roomStateData: SDictionary<RoomState>
 }
+declare interface RoomActivity_CJ { [id: string]: {
+    creepJobPID: PID | undefined;
+}}
 declare interface RoomState extends MemBase {
-    lastUpdated: number;
-    lastEnergy: number;
-
-    cSites: ObjectID[];
-    mineralIDs: ObjectID[];
-    resources: ObjectID[];
-    sourceIDs: ObjectID[];
-    tombstones: ObjectID[];
-    needsRepair: ObjectID[];
-    minUpdateOffset: number;
-    structures: SDictionary<StructureConstant>
     activityPID: PID;
-    owner?: PlayerID;
+    lastUpdated: number;
+
+    minerals: RoomActivity_CJ
+    sources: RoomActivity_CJ
 }
 declare interface RoomActivity_Memory extends MemBase {
     rID: RoomID;

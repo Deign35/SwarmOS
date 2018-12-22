@@ -62,29 +62,31 @@ class RoomExtension extends ExtensionBase implements IRoomDataExtension {
                 delete data.activityPID;
             }
             let room = Game.rooms[roomID];
-            this.memory.roomStateData[roomID] = {
+            let roomData: RoomState = {
                 activityPID: '',
-                mineralIDs: room.find(FIND_MINERALS)!.map((val: Mineral) => {
-                    return val.id;
-                }),
-                sourceIDs: room.find(FIND_SOURCES)!.map((val: Source) => {
-                    return val.id;
-                }),
-
-
-                owner: '',
                 lastUpdated: 0,
-                lastEnergy: 0,
-                cSites: [],
-                resources: [],
-                tombstones: [],
-                needsRepair: [],
-                minUpdateOffset: GetRandomIndex(primes_3000) || 73,
-                structures: {
-                    container: [],
-                    road: []
+
+                minerals: {},
+                sources: {},
+            }
+            let mineralIDs = room.find(FIND_MINERALS)!.map((val: Mineral) => {
+                return val.id;
+            });
+            for(let i = 0; i < mineralIDs.length; i++) {
+                roomData.minerals[mineralIDs[i]] = {
+                    creepJobPID: undefined
                 }
             }
+            let sourceIDs = room.find(FIND_SOURCES)!.map((val: Source) => {
+                return val.id;
+            });
+            for(let i = 0; i < sourceIDs.length; i++) {
+                roomData.sources[sourceIDs[i]] = {
+                    creepJobPID: undefined
+                }
+            }
+
+            this.memory.roomStateData[roomID] = roomData;
         }
 
         data = this.GetRoomData(roomID)!;

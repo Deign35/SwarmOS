@@ -40,7 +40,6 @@ class BasicRoomActivity extends BasicProcess<RoomActivity_Memory> {
             this.log.info("Room activity updated");
             if(this.roomData.lastUpdated % 31) {
                 // Update a thing
-                this.roomData.resources = this.room.find(FIND_DROPPED_RESOURCES).map((resource) => resource.id);
             }
             if(this.roomData.lastUpdated % 37) {
                 // Update a different thing
