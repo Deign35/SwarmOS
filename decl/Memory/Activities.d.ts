@@ -1,11 +1,8 @@
 declare interface SpawnActivity_Memory extends MemBase {
     sID: string;
 }
-declare interface CreepActivity_Memory extends SingleCreepActivity_Memory {
+declare interface CreepActivity_Memory extends MemBase {
     c: CreepID;     //Creep
-}
-
-declare interface SingleCreepActivity_Memory extends MemBase {
     at: ActionType;
     a?: number;     // (a)mount for resource transfers
     n?: number;     // (n)umber of times to run this action

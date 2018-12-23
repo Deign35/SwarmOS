@@ -32,11 +32,11 @@ class CreepActivity extends BasicProcess<CreepActivity_Memory> {
         }
     }
     RunThread(): ThreadState {
-        if(this.AssignedCreep && this.AssignedCreep.spawning) {
-            return ThreadState_Done;
-        }
         if (!this.AssignedCreep || (!this.Target && !this.TargetPos) || !this.ValidateActionTarget(this.memory.at, this.Target || this.TargetPos)) {
             this.EndActivity();
+            return ThreadState_Done;
+        }
+        if(this.AssignedCreep.spawning) {
             return ThreadState_Done;
         }
 

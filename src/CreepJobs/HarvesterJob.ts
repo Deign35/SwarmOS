@@ -1,11 +1,11 @@
 export const OSPackage: IPackage<HarvesterMemory> = {
     install(processRegistry: IProcessRegistry, extensionRegistry: IExtensionRegistry) {
-        processRegistry.register(CJ_Harvest, Harvester);
+        processRegistry.register(CJ_Harvest, HarvesterJob);
     }
 }
 import { SoloJob } from "./SoloJob";
 
-class Harvester extends SoloJob<HarvesterMemory> {
+class HarvesterJob extends SoloJob<HarvesterMemory> {
     RunThread(): ThreadState {
         let creep = this.creepRegistry.tryGetCreep(this.memory.c, this.pid);// Game.creeps[this.memory.c!];
         if (creep && !creep.spawning && creep.ticksToLive! < 80) {
